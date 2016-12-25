@@ -1,0 +1,15 @@
+podspec: UCPortal.podspec
+
+module: UCPortal
+
+module_version: 0.1.2
+
+# sdk: macosx
+
+author: Nicolás Gebauer
+
+author_url: https://github.com/negebauer
+
+copyright: 2016 Nicolás Gebauer
+
+# xcodebuild_arguments: -workspace,Examples/UCPortal.xcworkspace,-scheme,UCPortal-Example
