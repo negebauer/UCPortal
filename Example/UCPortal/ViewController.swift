@@ -7,18 +7,61 @@
 //
 
 import UIKit
+import UCPortal
 
 class ViewController: UIViewController {
-
+    
+    // MARK: - Constants
+    
+    let noData = "NONE"
+    
+    // MARK: - Variables
+    
+    var username: String {
+        return fieldUser.text ?? noData
+    }
+    var password: String {
+        return fieldPassword.text ?? noData
+    }
+    var status: String {
+        get { return fieldStatus.text ?? "" }
+        set { fieldStatus.text = newValue }
+    }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var fieldUser: UITextField!
+    @IBOutlet weak var fieldPassword: UITextField!
+    @IBOutlet weak var fieldStatus: UILabel!
+    
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
-
+    
+    // MARK: - Actions
+    
+    @IBAction func login(_ sender: AnyObject) {
+        return
+        let session = UCPSession(username: username, password: password)
+        session.login({
+            session.testLogin()
+            }, failure: { error in
+                print("Failed login")
+                print(error)
+        })
+    }
+    
+    // MARK: - Functions
+    
+    func hasData() -> Bool {
+        return username != noData && password != noData
+    }
+    
 }
-

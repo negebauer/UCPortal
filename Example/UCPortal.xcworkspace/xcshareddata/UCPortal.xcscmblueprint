@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E883AAA2DDF76268CA5C1DC0D2A53E2E63C43017",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E883AAA2DDF76268CA5C1DC0D2A53E2E63C43017" : 9223372036854775807,
+    "F20C18CF2F443D8C55C750FA5A363CB2B401A9DD" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4636D6FE-A9A3-4288-A198-BE45643E2F8F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E883AAA2DDF76268CA5C1DC0D2A53E2E63C43017" : "UCPortal\/",
+    "F20C18CF2F443D8C55C750FA5A363CB2B401A9DD" : "UCSiding\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "UCPortal",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/UCPortal.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/negebauer\/UCPortal.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E883AAA2DDF76268CA5C1DC0D2A53E2E63C43017"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/negebauer\/UCSiding.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F20C18CF2F443D8C55C750FA5A363CB2B401A9DD"
+    }
+  ]
+}

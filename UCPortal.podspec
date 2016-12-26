@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-s.description      = <<-DESC
+  s.description      = <<-DESC
     - Access the Mi Portal UC in an easy way!
-DESC
+  DESC
 
   s.homepage         = 'https://github.com/negebauer/UCPortal'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -28,10 +28,10 @@ DESC
   s.source           = { :git => 'https://github.com/negebauer/UCPortal.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.11'
-  s.watchos.deployment_target = '2.0'
-  s.tvos.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
+  s.osx.deployment_target = '10.12'
+  s.watchos.deployment_target = '3.0'
+  s.tvos.deployment_target = '10.0'
 
   s.source_files = 'UCPortal/Classes/**/*'
 
@@ -42,4 +42,5 @@ DESC
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Kanna', '~> 2.0.0'
 end

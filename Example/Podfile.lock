@@ -1,23 +1,13 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
+  - Kanna (2.0.0)
   - Nimble (5.1.1)
-  - Nimble-Snapshots (4.4.0):
-    - Nimble-Snapshots/Core (= 4.4.0)
-  - Nimble-Snapshots/Core (4.4.0):
-    - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
   - Quick (1.0.0)
-  - UCPortal (0.1.0)
+  - UCPortal (0.1.0):
+    - Kanna (~> 2.0.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
+  - Kanna (~> 2.0.0)
   - Nimble (~> 5.1.1)
-  - Nimble-Snapshots
   - Quick (~> 1.0.0)
   - UCPortal (from `../`)
 
@@ -26,12 +16,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Kanna: 9a6637f72f5c77fe9c045b1efb2a5bb074754af8
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
-  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  UCPortal: 024a29b1c6f1cee9dc384ecba8846e73852d2bfc
+  UCPortal: 01f63bc9d4f1e1e8dd24624b44f7030c15d9383e
 
-PODFILE CHECKSUM: 30ee8637c1f9056ba1e971702dfde0975cbf6408
+PODFILE CHECKSUM: 130b9964a0877eadace92f8f6190755b768af901
 
 COCOAPODS: 1.1.0.beta.1
