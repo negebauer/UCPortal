@@ -11,16 +11,20 @@ import Foundation
 public struct UCPNetwork {
     
     public enum Method: String {
-        case GET, POST, PUT, PATCH, DELETE
+        case get = "GET"
+        case post = "POST"
     }
     
-    public typealias response = (Data?, HTTPURLResponse?, Error?)
-    public typealias requestCallback = ((response) -> Void)
+    public typealias requestCallback = (UCPResponse) -> Void
     
     // MARK: - Constants
     
-    let session = URLSession.shared
-    static let callbackDefault: requestCallback = { (_,_,_) in print("NO_CALLBACK")}
+    static let session: URLSession = {
+        var config = URLSessionConfiguration.default
+        config.httpCookieAcceptPolicy = .always
+        return URLSession(configuration: config)
+    }()
+    static let callbackDefault: requestCallback = { _ in print("NO_CALLBACK")}
     
     // MARK: - Variables
     
@@ -29,41 +33,38 @@ public struct UCPNetwork {
     
     // MARK: - Init
     
-    public init(url: String, method: Method = .GET, headers: [String: String]? = nil, body: [String: Any]? = nil,
-         start: Bool = true, requestCallback: requestCallback? = nil) {
+    public init(url: String, method: Method = .get, headers: [String: String]? = nil, body: [String: String]? = nil, requestCallback: requestCallback? = nil) {
         let url = URL(string: url)!
         request = URLRequest(url: url)
-        request.allHTTPHeaderFields = headers
+        request.httpShouldHandleCookies = true
+        if let headers = headers { request.allHTTPHeaderFields = headers }
         request.httpMethod = method.rawValue
-        if let body = body { request.httpBody = NSKeyedArchiver.archivedData(withRootObject: body) }
-        let originalCallback = requestCallback ?? UCPNetwork.callbackDefault
-        let callback: (Data?, URLResponse?, Error?) -> Void = { (data, responseOld, error) in
-            let response = responseOld as? HTTPURLResponse
-            UCPActivityIndicator.shared.endTask()
-            originalCallback(data, response, error)
+        if let body = body {
+            request.httpBody = body.map({ (key, value) in "\(key)=\(value)" }).joined(separator: "&").data(using: .utf8)
         }
-        URLSessionConfiguration
-        task = session.dataTask(with: request, completionHandler: callback)
-        if start { resume() }
-        print("\nHEADERS")
-        print(request.allHTTPHeaderFields)
-        print("BODY")
-        print(body)
+        let originalCallback = requestCallback ?? UCPNetwork.callbackDefault
+        let callback: (Data?, URLResponse?, Error?) -> Void = { (data, response, error) in
+            let response = UCPResponse(data: data, response: response, error: error)
+            UCPActivityIndicator.shared.endTask()
+            originalCallback(response)
+        }
+        task = UCPNetwork.session.dataTask(with: request, completionHandler: callback)
+        resume()
     }
     
     // MARK: - Functions
     
-    func resume() {
+    public func resume() {
         UCPActivityIndicator.shared.startTask()
         task.resume()
     }
     
-    func suspend() {
+    public func suspend() {
         UCPActivityIndicator.shared.endTask()
         task.suspend()
     }
     
-    func cancel() {
+    public func cancel() {
         task.cancel()
     }
     

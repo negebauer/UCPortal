@@ -17,15 +17,16 @@ class ViewController: UIViewController {
     
     // MARK: - Variables
     
-    var username: String {
-        return fieldUser.text ?? noData
-    }
-    var password: String {
-        return fieldPassword.text ?? noData
-    }
+    var username: String { return fieldUser.text ?? noData }
+    var password: String { return fieldPassword.text ?? noData }
+    var hasData: Bool { return username != noData && password != noData }
     var status: String {
         get { return fieldStatus.text ?? "" }
-        set { fieldStatus.text = newValue }
+        set { DispatchQueue.main.async { self.fieldStatus.text = newValue } }
+    }
+    var macs: String {
+        get { return fieldMacs.text ?? "" }
+        set { DispatchQueue.main.async { self.fieldMacs.text = newValue } }
     }
     
     // MARK: - Outlets
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var fieldUser: UITextField!
     @IBOutlet weak var fieldPassword: UITextField!
     @IBOutlet weak var fieldStatus: UILabel!
+    @IBOutlet weak var fieldMacs: UITextView!
     
     // MARK: - Init
     
@@ -48,20 +50,27 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func login(_ sender: AnyObject) {
-        return
         let session = UCPSession(username: username, password: password)
+        status = "Login..."
         session.login({
-            session.testLogin()
+            self.status = "Login success"
+            self.loadMacs()
             }, failure: { error in
-                print("Failed login")
-                print(error)
+                self.status = error?.error ?? "LOGIN_ERROR"
         })
     }
     
     // MARK: - Functions
     
-    func hasData() -> Bool {
-        return username != noData && password != noData
+    func loadMacs() {
+        macs = "Loading macs..."
+        UCPNetwork(url: UCPURL.macRegistryPrepare, method: .post) { response in
+            let html = UCPUtils.string(response) ?? "NONE"
+            guard html.contains("Registro WIFI") else { return self.loadMacs() }
+            UCPNetwork(url: UCPURL.macRegistryGet, method: .post) { response in
+                self.macs = UCPUtils.string(response) ?? "NONE"
+            }
+        }
     }
     
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,6 +40,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9qc-bP-XG6">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -48,8 +55,12 @@
                             <constraint firstItem="DfL-ya-FYk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="GgR-hg-hAO"/>
                             <constraint firstItem="GDn-Cz-7hj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="HyP-JM-LD6"/>
                             <constraint firstItem="DfL-ya-FYk" firstAttribute="top" secondItem="WXO-tR-DyW" secondAttribute="bottom" constant="15" id="IHM-2b-spg"/>
+                            <constraint firstItem="9qc-bP-XG6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="LV3-4V-O2O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9qc-bP-XG6" secondAttribute="trailing" constant="8" id="Vcm-We-YE6"/>
                             <constraint firstItem="GDn-Cz-7hj" firstAttribute="top" secondItem="DFE-0o-lsu" secondAttribute="bottom" constant="8" id="YGf-pZ-2dy"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9qc-bP-XG6" secondAttribute="bottom" constant="8" id="ZUJ-z9-SG9"/>
                             <constraint firstItem="DFE-0o-lsu" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="eZQ-4V-rCl"/>
+                            <constraint firstItem="9qc-bP-XG6" firstAttribute="top" secondItem="GDn-Cz-7hj" secondAttribute="bottom" constant="8" id="k0P-MF-pbx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WXO-tR-DyW" secondAttribute="trailing" constant="8" id="nu8-4T-NU9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GDn-Cz-7hj" secondAttribute="trailing" constant="8" id="uCi-4K-vaf"/>
                             <constraint firstItem="WXO-tR-DyW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="v9o-g7-aFQ"/>
@@ -57,6 +68,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fieldMacs" destination="9qc-bP-XG6" id="kzg-zW-eHQ"/>
                         <outlet property="fieldPassword" destination="DfL-ya-FYk" id="rJ0-cW-iOA"/>
                         <outlet property="fieldStatus" destination="GDn-Cz-7hj" id="f7Z-eW-hJR"/>
                         <outlet property="fieldUser" destination="WXO-tR-DyW" id="Zsh-De-Fok"/>
@@ -64,6 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="102.99850074962519"/>
         </scene>
     </scenes>
 </document>

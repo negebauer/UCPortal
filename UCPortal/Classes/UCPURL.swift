@@ -21,9 +21,10 @@ public struct UCPURL {
     
     public static let domain = "portal.uc.cl"
     
-    public static let logged = "https://\(domain)/web/home-community/inicio"
+    public static let portal = "https://\(domain)/web/home-community/inicio"
     
-    public static let macRegistryPrepare = "https://\(domain)/c/portal/render_portlet?p_l_id=10229&p_p_id=RegistroMac_WAR_LPT028_RegistroMac_INSTANCE_L0Zr&p_p_lifecycle=0&p_p_sta"
+    public static let macRegistryPrepare = "https://\(domain)/c/portal/render_portlet?p_l_id=10229&p_p_id=RegistroMac_WAR_LPT028_RegistroMac_INSTANCE_L0Zr&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-3&p_p_col_pos=1&p_p_col_count=2&currentURL=%2Fweb%2Fhome-community%2Finicio"
+    
     public static let macRegistryGet = "https://\(domain)/LPT028_RegistroMac/GetListaMac_controller"
     public static let macAdd = "https://\(domain)/LPT028_RegistroMac/AgregarRegistroMac_controller"
     public static let macDelete = "https://\(domain)/LPT028_RegistroMac/EliminarRegistroMac_controller"

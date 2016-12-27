@@ -10,7 +10,7 @@
     import UIKit
 #endif
 
-internal class UCPActivityIndicator {
+class UCPActivityIndicator {
     
     // MARK: - Constants
     
